@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Services</title>
+    <style>
+        .container {
+            background: lightcyan;
+        }
+        .slides {
+            left: -200%;
+        }
+    </style>
+</head>
+<body>
+    <button class="nav" onclick="openMenu()">Open</button>
+    <div class="container">
+        <div class="slides">
+            <div class="home-slide"></div>
+            <div class="work-slide"></div>
+            <div class="services-slide"></div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="column1">
+            <a onclick="changePage(1)" onmouseover="changeSlide(1)">Home</a>
+            <a onclick="changePage(2)" onmouseover="changeSlide(2)">Work</a>
+            <a onclick="changePage(3)" onmouseover="changeSlide(3)">Services</a>
+        </div>
+        <div class="column2"></div>
+        <div class="column3">
+            <a href="#">Articles</a>
+            <a href="#">Get in touch</a>
+            <a href="#">Socials</a>
+        </div>
+    </div>
+
+    <script>
+        let menuOpen = false;
+        let container = document.querySelector('.container');
+        let nav = document.querySelector('.nav');
+        let menu = document.querySelector('.menu');
+        let slides = document.querySelector('.slides');
+
+        function changePage(n) {
+            nav.innerHTML = 'Open';
+            container.style.animation = '0.5s grow-container forwards';
+            let links = ['/index.html', '/work.html', '/services.html'];
+            setTimeout(() => {
+                window.location.href = links[n - 1];
+            }, 500);
+        }
+
+        function changeSlide(n) {
+            slides.style.left = `${(-n + 1) * 100}%`;
+        }
+
+        function openMenu() {
+            if (!menuOpen) {
+                container.style.animation = '0.5s shrink-container forwards';
+                container.style.overflow = 'hidden';
+                nav.innerHTML = 'Close';
+                slides.style.display = 'flex';
+            }
+            else {
+                container.style.animation = '0.5s grow-container forwards';
+                nav.innerHTML = 'Open';
+                slides.style.display = 'none';
+                slides.style.left = '-200%';
+            }
+
+            menuOpen = !menuOpen;
+        }
+    </script>
+</body>
+</html>

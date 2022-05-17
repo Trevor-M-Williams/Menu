@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container {
+    position: relative;
+    background: lightcyan;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    display: flex;
+}
+.slides {
+    position: relative;
+    height: 100%;
+    width: 300%;
+    display: none;
+    transition: all 0.5s;
+}
+.slides div {
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+}
+.home-slide {
+    background: lightcyan;
+}
+.work-slide {
+    background: lightblue;
+}
+.services-slide {
+    background: lightcyan;
+}
+.iframe {
+    height: 400px;
+    width: 800px;
+    resize: both;
+}
+.nav {
+    position: absolute;
+    top: 5vh;
+    right: 20vw;
+    z-index: 2;
+}
+.menu {
+    position: absolute;
+    top: 0;
+    background: #00549c;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+.menu .column1, .menu .column3 {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.menu .column2 {
+    width: 50%;
+}
+.menu .column1 a {
+    margin-bottom: 4vh;
+    margin-left: 10vw;
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+}
+.menu .column3 a {
+    margin-bottom: 3vh;
+    margin-right: 10vw;
+    text-align: end;
+    cursor: pointer;
+}
+
+@keyframes shrink-container {
+    from {height: 100vh; width: 100vw;}
+    to {height: 50vh; width: 50vw;}
+}
+
+@keyframes grow-container {
+    from {height: 50vh; width: 50vw;}
+    to {height: 100vh; width: 100vw;}
+}
